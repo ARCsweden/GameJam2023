@@ -98,17 +98,10 @@ public class Telekinesis : MonoBehaviour
         heldObject.transform.Rotate(rotateVector);
     }
 
-
-
-
-
-
-
-
     // ---------------------------------- FUNCTIONAL SECTION
     public float CheckDistance()
     {
-        return Vector3.Distance(heldObject.transform.position, holdPosition.transform.position - rbOfHeldObject.centerOfMass);
+        return Vector3.Distance(heldObject.transform.position, holdPosition.transform.position);
     }
 
     private void MoveObjectToPosition()
