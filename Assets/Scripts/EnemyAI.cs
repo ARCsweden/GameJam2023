@@ -7,9 +7,9 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject goal;
     public bool grabbed = false;
-    public float distanceLeft;
 
     private NavMeshAgent agent;
+    private bool wasReleased = false;
 
     void Start()
     {
@@ -22,16 +22,7 @@ public class EnemyAI : MonoBehaviour
         if (grabbed)
         {
             agent.Warp(transform.position);
-            if (agent.isStopped == false)
-                Grab();
         }
-        else
-        {
-            if (agent.isStopped == true)
-                Release();
-        }
-
-        distanceLeft = agent.remainingDistance;
 
         
         if ((transform.position - goal.transform.position).magnitude < 1)
@@ -43,18 +34,32 @@ public class EnemyAI : MonoBehaviour
     {
         agent.isStopped = true;
         agent.updatePosition = false;
+        Debug.Log("Grabbed");
+        agent.enabled = false;
+        grabbed = true;
     }
 
     public void Release()
     {
-        agent.ResetPath();
-        agent.destination = goal.transform.position;
-        agent.updatePosition = true;
-        agent.isStopped = false;
+        
+        wasReleased = true;
+    }
+
+    void OnCollisionEnter(Collision collision){
+        if(wasReleased && collision.gameObject.tag == "Ground"){
+            wasReleased = false;
+            agent.enabled = true;
+            agent.ResetPath();
+            agent.destination = goal.transform.position;
+            agent.updatePosition = true;
+            agent.isStopped = false;
+            grabbed = false;
+        }
     }
 
     private void ReachedGoal()
     {
         Destroy(gameObject);
     }
+
 }

@@ -18,13 +18,13 @@ public class TurretSearch : MonoBehaviour
         
     }
 
-    public EnemyHealth GetBestTarget(){
+    public EnemyAI GetBestTarget(){
         //Finds all enemies in reach
-        List<EnemyHealth> enemies = new List<EnemyHealth>();
+        List<EnemyAI> enemies = new List<EnemyAI>();
         Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position,turretTargetRadius,LayerMask.GetMask("Default"),QueryTriggerInteraction.Collide);
         foreach(Collider col in colliders){
-            EnemyHealth enemy;
-            if(col.TryGetComponent<EnemyHealth>(out enemy)){
+            EnemyAI enemy;
+            if(col.TryGetComponent<EnemyAI>(out enemy)){
                 enemies.Add(enemy);
             }
         }
