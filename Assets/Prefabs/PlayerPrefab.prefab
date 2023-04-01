@@ -118,6 +118,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2888937739905213052}
     m_Modifications:
+    - target: {fileID: 831824273, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483966593, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8826773925152647682, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
       propertyPath: m_IsKinematic
       value: 0
@@ -421,6 +429,10 @@ PrefabInstance:
     - target: {fileID: 4626187773629422224, guid: 0559b08a22339864e8bcb217ab40f84b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4626187773629422225, guid: 0559b08a22339864e8bcb217ab40f84b, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 447
       objectReference: {fileID: 0}
     - target: {fileID: 4626187773629422227, guid: 0559b08a22339864e8bcb217ab40f84b, type: 3}
       propertyPath: player
