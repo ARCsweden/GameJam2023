@@ -126,7 +126,7 @@ public class Telekinesis : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            if (hit.collider.CompareTag("Box"))
+            if (hit.collider.CompareTag("Pickable"))
             {
                 heldObject = hit.collider.gameObject;
                 heldObject.transform.SetParent(holdPosition);
