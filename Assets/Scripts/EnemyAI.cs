@@ -2,11 +2,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MoveTo : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
 
     public Transform goal;
     public bool grabbed = false;
+    public float distanceLeft;
 
     private NavMeshAgent agent;
 
@@ -29,6 +30,13 @@ public class MoveTo : MonoBehaviour
             if (agent.isStopped == true)
                 Release();
         }
+
+        distanceLeft = agent.remainingDistance;
+
+        
+        if ((transform.position - goal.position).magnitude < 1)
+            ReachedGoal();
+
     }
 
     public void Grab()
@@ -43,6 +51,10 @@ public class MoveTo : MonoBehaviour
         agent.destination = goal.position;
         agent.updatePosition = true;
         agent.isStopped = false;
+    }
 
+    private void ReachedGoal()
+    {
+        Destroy(gameObject);
     }
 }
