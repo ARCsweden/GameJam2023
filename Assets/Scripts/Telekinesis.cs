@@ -113,9 +113,9 @@ public class Telekinesis : MonoBehaviour
     {
         rbOfHeldObject.constraints = RigidbodyConstraints.None;
         heldObject.transform.parent = null;
+        heldObject.SendMessage("Release");
         heldObject = null;
         holdsObject = false;
-       
     }
 
     private void ShootObject()
@@ -144,7 +144,7 @@ public class Telekinesis : MonoBehaviour
 
                 rbOfHeldObject = heldObject.GetComponent<Rigidbody>();
                 rbOfHeldObject.constraints = RigidbodyConstraints.FreezeAll; // we want it to be stuck
-
+                heldObject.gameObject.SendMessage("Grab");
                 holdsObject = true;
 
                 CalculateRotationVector();

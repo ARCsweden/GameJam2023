@@ -13,14 +13,14 @@ public class TurretShooter : MonoBehaviour
     public void Update (){
         cooldown -= Time.deltaTime;
     }
-    public void Shoot(EnemyHealth target)
+    public void Shoot(EnemyAI target)
     {
         RaycastHit raycastHit;
         cooldown = fullCooldown;
         if(Physics.Linecast(shootPoint.position,target.transform.position, out raycastHit,LayerMask.GetMask("Default"),QueryTriggerInteraction.Ignore)){
-            EnemyHealth enemy;
-            if(raycastHit.collider.TryGetComponent<EnemyHealth>(out enemy)){
-                enemy.hp -= 10;
+            EnemyAI enemy;
+            if(raycastHit.collider.TryGetComponent<EnemyAI>(out enemy)){
+                //Deal Damage
             }
             laserLine.SetPosition(1,new Vector3(0,0,raycastHit.distance));
             laserLine.enabled = true;

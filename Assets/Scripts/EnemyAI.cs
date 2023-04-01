@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
     public bool grabbed = false;
 
     private NavMeshAgent agent;
+    private bool wasReleased = false;
 
     [SerializeField]
     float health;
@@ -30,13 +31,6 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
         if (grabbed)
         {
             agent.Warp(transform.position);
-            if (agent.isStopped == false)
-                Grab();
-        }
-        else
-        {
-            if (agent.isStopped == true)
-                Release();
         }
 
         
@@ -47,16 +41,28 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
 
     public void Grab()
     {
-        agent.isStopped = true;
+        //agent.isStopped = true;
         agent.updatePosition = false;
+        agent.enabled = false;
+        grabbed = true;
     }
 
     public void Release()
     {
-        agent.ResetPath();
-        agent.destination = goal.transform.position;
-        agent.updatePosition = true;
-        agent.isStopped = false;
+        
+        wasReleased = true;
+    }
+
+    void OnCollisionEnter(Collision collision){
+        if(wasReleased && collision.gameObject.tag == "Ground"){
+            wasReleased = false;
+            agent.enabled = true;
+            agent.ResetPath();
+            agent.destination = goal.transform.position;
+            agent.updatePosition = true;
+            agent.isStopped = false;
+            grabbed = false;
+        }
     }
 
     private void ReachedGoal()

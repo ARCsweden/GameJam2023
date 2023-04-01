@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(TurretShooter))]
 public class TurretAim : MonoBehaviour
 {
-    public EnemyHealth target;
+    public EnemyAI target;
     private TurretSearch turretSearcher;
     private TurretShooter turretShooter;
     private void Start(){
