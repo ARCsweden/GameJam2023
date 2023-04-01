@@ -1,15 +1,23 @@
-// MoveTo.cs
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IHealthMechanics
 {
 
     public GameObject goal;
     public bool grabbed = false;
-    public float distanceLeft;
 
     private NavMeshAgent agent;
+
+    [SerializeField]
+    float health;
+
+    public float Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
 
     void Start()
     {
@@ -31,10 +39,8 @@ public class EnemyAI : MonoBehaviour
                 Release();
         }
 
-        distanceLeft = agent.remainingDistance;
-
         
-        if ((transform.position - goal.transform.position).magnitude < 1)
+        if ((transform.position - goal.transform.position).magnitude < 1.5)
             ReachedGoal();
 
     }
@@ -55,6 +61,20 @@ public class EnemyAI : MonoBehaviour
 
     private void ReachedGoal()
     {
+        goal.SendMessage("DealDamage", 10);
         Destroy(gameObject);
+    }
+
+    public void DealDamage(float Damage)
+    {
+        health -= Damage;
+
+        if (health <= 0)
+            OnDeath();
+    }
+
+    public void OnDeath()
+    {
+        Console.WriteLine("It Died...");
     }
 }

@@ -162,7 +162,8 @@ public class SFPSC_GrapplingHook : MonoBehaviour
 
     private Vector3 dir;
 
-    private float speed = 0.0f, targetDistance;
+    //private float speed = 0.0f,
+    private float targetDistance;
     private void GrappleUpdate()
     {
         if (location == null)
