@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Text : MonoBehaviour
 {
+    public int max = 10;
+
     public int test;
 
     // Start is called before the first frame update
@@ -20,6 +22,11 @@ public class Text : MonoBehaviour
 
     public void Change(int value)
     {
+        if(value > max)
+        {
+            value = max;
+        }
+
         gameObject.GetComponent<TMPro.TextMeshPro>().text = value.ToString();
     }
 }
