@@ -23,7 +23,7 @@ public class Telekinesis : MonoBehaviour
         
         if (holdsObject)
         {
-            heldObject.layer = 6;
+            heldObject.layer = LayerMask.NameToLayer("NonCollision");
         }
 
 

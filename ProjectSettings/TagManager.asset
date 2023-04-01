@@ -14,8 +14,7 @@ TagManager:
   - Water
   - UI
   - PlaceableGround
-  - NonCollission
-  - 
+  - NonCollision
   - 
   - 
   - 

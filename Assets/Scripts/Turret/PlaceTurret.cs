@@ -40,8 +40,10 @@ public class PlaceTurret : MonoBehaviour
         bool foundGround = Physics.Raycast(transform.position + Vector3.up * 10,Vector3.down, out rhit,13,LayerMask.GetMask("PlaceableGround"));
         Collider[] colliders = Physics.OverlapBox(placeHolder.transform.position + placeHolderCol.center,placeHolderCol.size/2,placeHolder.transform.rotation,LayerMask.GetMask("Default"),QueryTriggerInteraction.Ignore);
         if(foundGround){
-                placeHolderCorrect.transform.position = Vector3.MoveTowards(placeHolder.transform.position,rhit.point,Vector3.Distance(placeHolder.transform.position,rhit.point)*20*Time.deltaTime);
-                placeHolderObscured.transform.position = Vector3.MoveTowards(placeHolder.transform.position,rhit.point,Vector3.Distance(placeHolder.transform.position,rhit.point)*20*Time.deltaTime);
+                //placeHolderCorrect.transform.position = Vector3.MoveTowards(placeHolder.transform.position,rhit.point,Vector3.Distance(placeHolder.transform.position,rhit.point)*50*Time.deltaTime);
+                //placeHolderObscured.transform.position = Vector3.MoveTowards(placeHolder.transform.position,rhit.point,Vector3.Distance(placeHolder.transform.position,rhit.point)*50*Time.deltaTime);
+                placeHolderCorrect.transform.position = new Vector3(placeHolderCorrect.transform.position.x, rhit.point.y, placeHolderCorrect.transform.position.z);
+                placeHolderObscured.transform.position = new Vector3(placeHolderObscured.transform.position.x, rhit.point.y, placeHolderObscured.transform.position.z);
 
         }
 
