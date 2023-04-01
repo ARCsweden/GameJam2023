@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
 
-    public Transform goal;
+    public GameObject goal;
     public bool grabbed = false;
     public float distanceLeft;
 
@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.destination = goal.position;
+        agent.destination = goal.transform.position;
     }
 
     private void Update()
@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
         distanceLeft = agent.remainingDistance;
 
         
-        if ((transform.position - goal.position).magnitude < 1)
+        if ((transform.position - goal.transform.position).magnitude < 1)
             ReachedGoal();
 
     }
@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
     public void Release()
     {
         agent.ResetPath();
-        agent.destination = goal.position;
+        agent.destination = goal.transform.position;
         agent.updatePosition = true;
         agent.isStopped = false;
     }
