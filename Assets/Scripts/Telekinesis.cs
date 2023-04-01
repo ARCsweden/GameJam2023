@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Telekinesis : MonoBehaviour
@@ -16,6 +17,18 @@ public class Telekinesis : MonoBehaviour
     private Rigidbody rbOfHeldObject;
     private bool holdsObject = false;
     private Vector3 rotateVector = Vector3.one;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        if (holdsObject)
+        {
+            heldObject.layer = 6;
+        }
+
+
+
+    }
 
     void Start()
     {
@@ -61,7 +74,6 @@ public class Telekinesis : MonoBehaviour
         if (holdsObject)
         {
             RotateObject();
-            heldObject.GetComponent<Collider>().enabled = false;
 
             if (CheckDistance() >= 1f)
             {
@@ -86,13 +98,6 @@ public class Telekinesis : MonoBehaviour
         heldObject.transform.Rotate(rotateVector);
     }
 
-
-
-
-
-
-
-
     // ---------------------------------- FUNCTIONAL SECTION
     public float CheckDistance()
     {
@@ -108,7 +113,6 @@ public class Telekinesis : MonoBehaviour
     {
         rbOfHeldObject.constraints = RigidbodyConstraints.None;
         heldObject.transform.parent = null;
-        heldObject.GetComponent<Collider>().enabled = true;
         heldObject = null;
         holdsObject = false;
        
@@ -118,11 +122,12 @@ public class Telekinesis : MonoBehaviour
     {
         throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
         rbOfHeldObject.AddForce(mainCamera.transform.forward * throwForce, ForceMode.Impulse);
-        Debug.Log(throwForce);
         throwForce = minThrowForce;
         
         ReleaseObject();
     }
+
+
 
     private void Raycast()
     {
