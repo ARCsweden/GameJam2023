@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7098746ad0f2745a8ab824fe64d86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretTargetRadius: 10
+  turretTargetRadius: 20
 --- !u!65 &3066437443044220456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1695616351
 Transform:
   m_ObjectHideFlags: 0
