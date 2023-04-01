@@ -122,7 +122,6 @@ public class Telekinesis : MonoBehaviour
     {
         throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
         rbOfHeldObject.AddForce(mainCamera.transform.forward * throwForce, ForceMode.Impulse);
-        Debug.Log(throwForce);
         throwForce = minThrowForce;
         
         ReleaseObject();
