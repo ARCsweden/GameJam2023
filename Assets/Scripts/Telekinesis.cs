@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Telekinesis : MonoBehaviour
@@ -17,6 +18,18 @@ public class Telekinesis : MonoBehaviour
     private bool holdsObject = false;
     private Vector3 rotateVector = Vector3.one;
 
+    void OnCollisionEnter(Collision collision)
+    {
+        
+        if (holdsObject)
+        {
+            heldObject.layer = LayerMask.NameToLayer("NonCollision");
+        }
+
+
+
+    }
+
     void Start()
     {
         throwForce = minThrowForce;
@@ -32,7 +45,7 @@ public class Telekinesis : MonoBehaviour
 
         if (Input.GetMouseButton(1) && holdsObject)
         {
-            float lightSpeed = 35f;
+            float lightSpeed = 100f;
             float amount = 0.001f;
             float randSin;
 
@@ -42,14 +55,15 @@ public class Telekinesis : MonoBehaviour
             heldObject.transform.position = new Vector3(heldObject.transform.position.x, heldObject.transform.position.y + randSin, heldObject.transform.position.z);
 
 
-            float diff = 0.001f;
-            throwForce += 0.1f;
+            float diff = 0.01f;
+            throwForce += 1f;
             rotateVector = new Vector3(rotateVector.x + diff, rotateVector.y + diff, rotateVector.z + diff);
         }
 
         if (Input.GetMouseButtonUp(1) && holdsObject)
         {
             ShootObject();
+            
         }
 
         if (Input.GetKeyDown(KeyCode.F) && holdsObject)
@@ -84,13 +98,6 @@ public class Telekinesis : MonoBehaviour
         heldObject.transform.Rotate(rotateVector);
     }
 
-
-
-
-
-
-
-
     // ---------------------------------- FUNCTIONAL SECTION
     public float CheckDistance()
     {
@@ -106,6 +113,7 @@ public class Telekinesis : MonoBehaviour
     {
         rbOfHeldObject.constraints = RigidbodyConstraints.None;
         heldObject.transform.parent = null;
+        heldObject.SendMessage("Release");
         heldObject = null;
         holdsObject = false;
     }
@@ -115,8 +123,11 @@ public class Telekinesis : MonoBehaviour
         throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
         rbOfHeldObject.AddForce(mainCamera.transform.forward * throwForce, ForceMode.Impulse);
         throwForce = minThrowForce;
+        
         ReleaseObject();
     }
+
+
 
     private void Raycast()
     {
@@ -126,14 +137,14 @@ public class Telekinesis : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            if (hit.collider.CompareTag("Box"))
+            if (hit.collider.CompareTag("Pickable"))
             {
                 heldObject = hit.collider.gameObject;
                 heldObject.transform.SetParent(holdPosition);
 
                 rbOfHeldObject = heldObject.GetComponent<Rigidbody>();
                 rbOfHeldObject.constraints = RigidbodyConstraints.FreezeAll; // we want it to be stuck
-
+                heldObject.gameObject.SendMessage("Grab");
                 holdsObject = true;
 
                 CalculateRotationVector();
