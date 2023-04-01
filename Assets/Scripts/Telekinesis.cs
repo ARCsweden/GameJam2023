@@ -32,7 +32,7 @@ public class Telekinesis : MonoBehaviour
 
         if (Input.GetMouseButton(1) && holdsObject)
         {
-            float lightSpeed = 35f;
+            float lightSpeed = 100f;
             float amount = 0.001f;
             float randSin;
 
@@ -42,14 +42,15 @@ public class Telekinesis : MonoBehaviour
             heldObject.transform.position = new Vector3(heldObject.transform.position.x, heldObject.transform.position.y + randSin, heldObject.transform.position.z);
 
 
-            float diff = 0.001f;
-            throwForce += 0.1f;
+            float diff = 0.01f;
+            throwForce += 1f;
             rotateVector = new Vector3(rotateVector.x + diff, rotateVector.y + diff, rotateVector.z + diff);
         }
 
         if (Input.GetMouseButtonUp(1) && holdsObject)
         {
             ShootObject();
+            
         }
 
         if (Input.GetKeyDown(KeyCode.F) && holdsObject)
@@ -60,6 +61,7 @@ public class Telekinesis : MonoBehaviour
         if (holdsObject)
         {
             RotateObject();
+            heldObject.GetComponent<Collider>().enabled = false;
 
             if (CheckDistance() >= 1f)
             {
@@ -106,15 +108,19 @@ public class Telekinesis : MonoBehaviour
     {
         rbOfHeldObject.constraints = RigidbodyConstraints.None;
         heldObject.transform.parent = null;
+        heldObject.GetComponent<Collider>().enabled = true;
         heldObject = null;
         holdsObject = false;
+       
     }
 
     private void ShootObject()
     {
         throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
         rbOfHeldObject.AddForce(mainCamera.transform.forward * throwForce, ForceMode.Impulse);
+        Debug.Log(throwForce);
         throwForce = minThrowForce;
+        
         ReleaseObject();
     }
 
