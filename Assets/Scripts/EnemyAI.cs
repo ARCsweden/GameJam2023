@@ -66,6 +66,8 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
             agent.updatePosition = true;
             agent.isStopped = false;
             grabbed = false;
+            Debug.Log(collision.impulse.magnitude/5);
+            DealDamage(collision.impulse.magnitude/5);
         }
     }
 

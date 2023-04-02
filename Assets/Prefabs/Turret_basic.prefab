@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7098746ad0f2745a8ab824fe64d86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretTargetRadius: 20
+  turretTargetRadius: 22
 --- !u!65 &3066437443044220456
 BoxCollider:
   m_ObjectHideFlags: 0

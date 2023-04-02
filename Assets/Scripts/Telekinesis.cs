@@ -62,7 +62,7 @@ public class Telekinesis : MonoBehaviour
 
             float diff = 0.001f;
             
-            throwForce += 1f;
+            throwForce += 200f * Time.deltaTime;
             throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
             rotateVector = new Vector3(rotateVector.x + diff, rotateVector.y + diff, rotateVector.z + diff);
         }
