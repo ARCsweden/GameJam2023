@@ -81,6 +81,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
 
     public void OnDeath()
     {
-        Console.WriteLine("It Died...");
+        Destroy(gameObject);
+        Debug.Log("It Died...");
     }
 }

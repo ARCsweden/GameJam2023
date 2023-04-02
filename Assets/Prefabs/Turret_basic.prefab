@@ -151,6 +151,7 @@ MonoBehaviour:
   cooldown: 0
   shootPoint: {fileID: 782300995137304197}
   laserLine: {fileID: 1695616352}
+  damage: 20
 --- !u!114 &563940426
 MonoBehaviour:
   m_ObjectHideFlags: 0

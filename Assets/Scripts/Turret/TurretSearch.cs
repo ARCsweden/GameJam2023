@@ -21,7 +21,7 @@ public class TurretSearch : MonoBehaviour
     public EnemyAI GetBestTarget(){
         //Finds all enemies in reach
         List<EnemyAI> enemies = new List<EnemyAI>();
-        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position,turretTargetRadius,LayerMask.GetMask("Default"),QueryTriggerInteraction.Collide);
+        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position,turretTargetRadius,LayerMask.GetMask("Default","NonCollision"),QueryTriggerInteraction.Collide);
         foreach(Collider col in colliders){
             EnemyAI enemy;
             if(col.TryGetComponent<EnemyAI>(out enemy)){
@@ -30,7 +30,17 @@ public class TurretSearch : MonoBehaviour
         }
         //Outputs first found enemy
         if(enemies.Count > 0){
-            return enemies[0];
+            int closestIndex = 0;
+            float closest = float.MaxValue;
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                float distance = Vector3.Distance(enemies[0].gameObject.transform.position,transform.position);
+                if(distance < closest){
+                    closest = distance;
+                    closestIndex = i;
+                }
+            }
+            return enemies[closestIndex];
         }
         return null;
 
