@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,14 +238,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: -0.2694959
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: 0.7592005
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -448,14 +440,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: -0.10371926
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.17685187
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -722,14 +706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (12)
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: -0.16333096
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.09270022
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -885,14 +861,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: 0.39301476
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: 0.3695283
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1054,6 +1022,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5938156154183567423, guid: 6f2e650dcd7eedc4bb311dc3d9f9b6e3, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f2e650dcd7eedc4bb311dc3d9f9b6e3, type: 3}
 --- !u!1001 &1570453470
@@ -1122,14 +1094,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: 0.3888624
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: 0.83207923
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1201,14 +1165,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: -0.022083016
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.16763991
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1278,14 +1234,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: -0.9308981
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: 0.34275264
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1362,14 +1310,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: 0.041345198
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: 0.6501774
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1439,14 +1379,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: 0.3494079
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.0653953
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1629,14 +1561,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: 0.41740867
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.45408455
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1707,14 +1631,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: 0.036130697
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.09097394
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
@@ -1784,14 +1700,6 @@ PrefabInstance:
     - target: {fileID: 460096703713317328, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.x
-      value: -0.26533678
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: velocity.z
-      value: -0.24812777
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 460096703713317321, guid: ba2ad5fff9c252b4fbeeba0e4e58ebbd, type: 3}
