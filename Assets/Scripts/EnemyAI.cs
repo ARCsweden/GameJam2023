@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
 {
 
     public GameObject goal;
+    float Damage = 1;
     public bool grabbed = false;
 
     private NavMeshAgent agent;
@@ -67,7 +68,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
 
     private void ReachedGoal()
     {
-        goal.SendMessage("DealDamage", 10);
+        goal.SendMessage("DealDamage", Damage);
         Destroy(gameObject);
     }
 
@@ -81,6 +82,6 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
 
     public void OnDeath()
     {
-        Console.WriteLine("It Died...");
+        Destroy(gameObject);
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 460096703713317326}
   - component: {fileID: 460096703713317322}
   - component: {fileID: 8467262027353010243}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -111,8 +111,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
-  m_Acceleration: 30
+  m_Speed: 10
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 180
   m_StoppingDistance: 0
@@ -122,7 +122,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &460096703713317322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,19 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
   grabbed: 0
---- !u!114 &460096703713317321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460096703713317328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0235c5501b40e4e478a0c5d0c6a105ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 40
+  health: 0
 --- !u!54 &8467262027353010243
 Rigidbody:
   m_ObjectHideFlags: 0
