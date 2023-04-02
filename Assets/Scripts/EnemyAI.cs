@@ -85,7 +85,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
     public void OnDeath()
     {
         player.GetComponent<Values>().TotalScrap += 50;
-        Console.WriteLine("It Died...");
-
+        Destroy(gameObject);
+        Debug.Log("It Died...");
     }
 }
