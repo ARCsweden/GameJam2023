@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pitch : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject theCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,6 @@ public class Pitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.eulerAngles = camera.transform.eulerAngles;
+        gameObject.transform.eulerAngles = theCamera.transform.eulerAngles;
     }
 }
