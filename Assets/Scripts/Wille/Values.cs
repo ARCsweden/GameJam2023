@@ -70,7 +70,7 @@ public class Values : MonoBehaviour
 
     public void updateWave()
     {
-        //Update wave
+        wave = GameObject.Find("Start").GetComponent<Spawner>().currentWave;
         GameObject.Find("Wave Cube").GetComponentInChildren<Text>().Change(wave);
     }
 }
