@@ -21,7 +21,7 @@ public class Values : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         home_base = GameObject.Find("End");
         health = maxHealth;
-        TotalScrap = 0;
+        TotalScrap = 200;
         TotalEnemies = 0;
         wave = 1;
     }

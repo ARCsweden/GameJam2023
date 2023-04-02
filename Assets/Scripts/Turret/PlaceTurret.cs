@@ -10,6 +10,8 @@ public class PlaceTurret : MonoBehaviour
 
     private BoxCollider placeHolderCol;
     public GameObject turretPrefab;
+    public int turretCost;
+    public Values val;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,12 +49,13 @@ public class PlaceTurret : MonoBehaviour
 
         }
 
-        if(placing && Input.GetButton("Fire1") && foundGround && colliders.Length == 0){
+        if(placing && Input.GetButton("Fire1") && foundGround && colliders.Length == 0 && val.TotalScrap >= turretCost){
             Instantiate(turretPrefab,placeHolder.transform.position,placeHolder.transform.rotation);
             placeHolder.SetActive(false);
             placing = false;
+            val.TotalScrap -= turretCost;
         }
-        if(!foundGround || colliders.Length > 0){
+        if(!foundGround || colliders.Length > 0 || val.TotalScrap < turretCost){
             bool active = placeHolder.activeSelf;
             placeHolderCorrect.SetActive(false);
             placeHolder = placeHolderObscured;
