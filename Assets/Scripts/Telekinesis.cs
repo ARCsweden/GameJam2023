@@ -38,6 +38,9 @@ public class Telekinesis : MonoBehaviour
 
     void Update()
     {
+        if (holdsObject && heldObject == null)
+            holdsObject = false;
+
         if (Input.GetMouseButtonDown(0) && !holdsObject)
         {
             Raycast();
