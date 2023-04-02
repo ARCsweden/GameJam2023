@@ -18,7 +18,7 @@ public class TurretShooter : MonoBehaviour
     {
         RaycastHit raycastHit;
         cooldown = fullCooldown;
-        if(Physics.Linecast(shootPoint.position,target.transform.position, out raycastHit,LayerMask.GetMask("Default"),QueryTriggerInteraction.Ignore)){
+        if(Physics.Linecast(shootPoint.position,target.transform.position, out raycastHit,LayerMask.GetMask("Default","NonCollision"),QueryTriggerInteraction.Ignore)){
             EnemyAI enemy;
             if(raycastHit.collider.TryGetComponent<EnemyAI>(out enemy)){
                 enemy.DealDamage(damage);

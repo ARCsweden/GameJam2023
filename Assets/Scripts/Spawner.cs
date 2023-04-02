@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 
     public float waveTime = 10;
     public int currentWave = 0;
-
+    
     [SerializeField]
     float currTime;
     [SerializeField]
@@ -42,6 +42,7 @@ public class Spawner : MonoBehaviour
             GameObject currEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             currEnemy.GetComponent<EnemyAI>().goal = end;
             currEnemy.GetComponent<EnemyAI>().Health = 100;
+            currEnemy.transform.parent = transform;
         }
 
 

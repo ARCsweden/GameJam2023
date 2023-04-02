@@ -64,7 +64,7 @@ public class Values : MonoBehaviour
 
     public void updateNumEnemies()
     {
-        TotalEnemies = GameObject.Find("Enemies").transform.childCount;
+        TotalEnemies = GameObject.Find("Start").transform.childCount;
         GameObject.Find("Enemy Cube").GetComponentInChildren<Text>().Change(TotalEnemies);
     }
 

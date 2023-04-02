@@ -38,7 +38,7 @@ public class Telekinesis : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         if (holdsObject && heldObject == null)
             holdsObject = false;
