@@ -7,7 +7,6 @@ using UnityEngine;
 public class Left : MonoBehaviour
 {
     int maxNumber;
-    public int test;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +17,7 @@ public class Left : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Change(test);
+
     }
 
     public void Change(int value)

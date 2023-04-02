@@ -6,38 +6,27 @@ public class Values : MonoBehaviour
 {
     public int health;
     public int maxHealth = 100;
-    public int charge;
-    public int maxCharge;
-    public int perCharge = 10;
-    int chargeFraction;
+
+    public int test;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-        charge = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
-        chargeFraction++;
-
-        if (chargeFraction >= perCharge && charge < maxCharge)
-        {
-            charge++;
-            chargeFraction = 0;
-        }
-
-        if(charge > maxCharge)
-        {
-            charge = maxCharge;
-        }
+        TakeDamage(test);
+        test = 0;
     }
 
     public void TakeDamage(int amount)
     {
         health -= amount;
+
+        GameObject.Find("HP Cube").GetComponent<Bar>().Rezise((float)health /maxHealth);
 
         if(health <= 0)
         {
@@ -45,8 +34,4 @@ public class Values : MonoBehaviour
         }
     }
 
-    public void UseCharge(int amount)
-    {
-        charge -= amount;
-    }
 }

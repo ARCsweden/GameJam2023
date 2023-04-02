@@ -6,7 +6,6 @@ public class Bar : MonoBehaviour
 {
     Vector3 size;
     Vector3 baseSize;
-    public float test;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rezise(test);
+
     }
 
     public void Rezise(float change)
