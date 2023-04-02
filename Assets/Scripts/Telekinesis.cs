@@ -12,7 +12,9 @@ public class Telekinesis : MonoBehaviour
     public float minThrowForce;
     public float maxThrowForce;
 
-    private float throwForce;
+    [HideInInspector]
+    public float throwForce;
+
     private GameObject heldObject;
     private Rigidbody rbOfHeldObject;
     private bool holdsObject = false;
@@ -36,7 +38,7 @@ public class Telekinesis : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (holdsObject && heldObject == null)
             holdsObject = false;
@@ -58,8 +60,10 @@ public class Telekinesis : MonoBehaviour
             heldObject.transform.position = new Vector3(heldObject.transform.position.x, heldObject.transform.position.y + randSin, heldObject.transform.position.z);
 
 
-            float diff = 0.01f;
+            float diff = 0.001f;
+            
             throwForce += 1f;
+            throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
             rotateVector = new Vector3(rotateVector.x + diff, rotateVector.y + diff, rotateVector.z + diff);
         }
 
@@ -123,7 +127,7 @@ public class Telekinesis : MonoBehaviour
 
     private void ShootObject()
     {
-        throwForce = Mathf.Clamp(throwForce, minThrowForce, maxThrowForce);
+        
         rbOfHeldObject.AddForce(mainCamera.transform.forward * throwForce, ForceMode.Impulse);
         throwForce = minThrowForce;
         

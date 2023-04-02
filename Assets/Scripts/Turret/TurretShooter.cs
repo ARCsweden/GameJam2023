@@ -10,6 +10,7 @@ public class TurretShooter : MonoBehaviour
     public float cooldown = 0;
     public Transform shootPoint;
     public LineRenderer laserLine;
+    public int damage = 50;
     public void Update (){
         cooldown -= Time.deltaTime;
     }
@@ -20,7 +21,7 @@ public class TurretShooter : MonoBehaviour
         if(Physics.Linecast(shootPoint.position,target.transform.position, out raycastHit,LayerMask.GetMask("Default"),QueryTriggerInteraction.Ignore)){
             EnemyAI enemy;
             if(raycastHit.collider.TryGetComponent<EnemyAI>(out enemy)){
-                //Deal Damage
+                enemy.DealDamage(damage);
             }
             laserLine.SetPosition(1,new Vector3(0,0,raycastHit.distance));
             laserLine.enabled = true;

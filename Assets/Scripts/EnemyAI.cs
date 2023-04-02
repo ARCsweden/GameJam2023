@@ -5,6 +5,8 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour, IHealthMechanics
 {
 
+    private GameObject player;
+
     public GameObject goal;
     float Damage = 1;
     public bool grabbed = false;
@@ -25,6 +27,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
     {
         agent = GetComponent<NavMeshAgent>();
         agent.destination = goal.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -82,6 +85,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
 
     public void OnDeath()
     {
+        player.GetComponent<Values>().TotalScrap += 50;
         Destroy(gameObject);
     }
 }
