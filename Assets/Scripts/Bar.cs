@@ -21,7 +21,7 @@ public class Bar : MonoBehaviour
 
     }
 
-    public void Rezise(float change)
+    public void Resize(float change)
     {
         if(change <= 0)
         {
