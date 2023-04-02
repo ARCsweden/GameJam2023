@@ -5,38 +5,34 @@ using UnityEngine;
 
 public class Values : MonoBehaviour
 {
-    public int health;
+    public float health;
     public int maxHealth = 100;
 
-    public int test;
     private GameObject player;
+    private GameObject home_base;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        home_base = GameObject.Find("End");
         health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        TakeDamage(test);
-        test = 0;
+        TakeDamage();
         UNLIMITEDPOWER();
 
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage()
     {
-        health -= amount;
+        health = home_base.GetComponent<HomeBase>().Health;
 
         GameObject.Find("HP Cube").GetComponent<Bar>().Resize((float)health /maxHealth);
 
-        if(health <= 0)
-        {
-            //dead ):
-        }
     }
 
     public void UNLIMITEDPOWER()
