@@ -7,6 +7,7 @@ public class Values : MonoBehaviour
 {
     public float health;
     public int maxHealth = 100;
+    public int TotalScrap;
 
     private GameObject player;
     private GameObject home_base;
@@ -17,6 +18,7 @@ public class Values : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         home_base = GameObject.Find("End");
         health = maxHealth;
+        TotalScrap = 0;
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class Values : MonoBehaviour
     {
         TakeDamage();
         UNLIMITEDPOWER();
+        ScrapHandler();
 
     }
 
@@ -45,4 +48,9 @@ public class Values : MonoBehaviour
         GameObject.Find("Charge Cube").GetComponent<Bar>().Resize(currCharge / maxCharge);
     }
 
+
+    public void ScrapHandler()
+    {
+        GameObject.Find("Scrap Cube").GetComponentInChildren<Text>().Change(TotalScrap);
+    }
 }
