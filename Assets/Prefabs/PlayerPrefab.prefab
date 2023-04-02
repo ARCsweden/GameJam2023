@@ -47,6 +47,8 @@ MonoBehaviour:
   placeHolderCorrect: {fileID: 8057993338095868133}
   placeHolderObscured: {fileID: 8057993337801631400}
   turretPrefab: {fileID: 939335178, guid: 29f393efdc386ee41aee6077912722cf, type: 3}
+  turretCost: 200
+  val: {fileID: 2888937737966170750}
 --- !u!1 &2888937738587428232
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +156,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 507482552, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
+      propertyPath: TotalScrap
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 650045531, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -244,7 +250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8826773925152648185, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826773925152648185, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8826773925152648188, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
       propertyPath: m_RootOrder
@@ -301,6 +311,17 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 507482546, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
+--- !u!114 &2888937737966170750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 507482552, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
+  m_PrefabInstance: {fileID: 2888937738467156934}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938156154183567423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d8b869b16b8524cb2c85e6eca6b771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5938156153114517017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8826773924067868127, guid: 834cd2fd42eb4ba429fd2d335a021d45, type: 3}
@@ -334,6 +355,7 @@ MonoBehaviour:
   attractionSpeed: 10
   minThrowForce: 50
   maxThrowForce: 500
+  throwForce: 0
 --- !u!1001 &2888937738565844730
 PrefabInstance:
   m_ObjectHideFlags: 0

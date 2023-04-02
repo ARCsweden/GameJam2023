@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour, IHealthMechanics
     private GameObject player;
 
     public GameObject goal;
-    float Damage = 1;
+    public float Damage = 1;
     public bool grabbed = false;
 
     private NavMeshAgent agent;

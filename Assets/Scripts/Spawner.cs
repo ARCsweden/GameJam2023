@@ -42,6 +42,7 @@ public class Spawner : MonoBehaviour
             GameObject currEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             currEnemy.GetComponent<EnemyAI>().goal = end;
             currEnemy.GetComponent<EnemyAI>().Health = 100;
+            currEnemy.GetComponent<EnemyAI>().Damage = 1;
             currEnemy.transform.parent = transform;
         }
 
