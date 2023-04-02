@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Values : MonoBehaviour
@@ -8,6 +9,8 @@ public class Values : MonoBehaviour
     public float health;
     public int maxHealth = 100;
     public int TotalScrap;
+    public int wave;
+    public int TotalEnemies;
 
     private GameObject player;
     private GameObject home_base;
@@ -19,6 +22,8 @@ public class Values : MonoBehaviour
         home_base = GameObject.Find("End");
         health = maxHealth;
         TotalScrap = 0;
+        TotalEnemies = 0;
+        wave = 1;
     }
 
     // Update is called once per frame
@@ -27,6 +32,9 @@ public class Values : MonoBehaviour
         TakeDamage();
         UNLIMITEDPOWER();
         ScrapHandler();
+        updateNumEnemies();
+        updateWave();
+
 
     }
 
@@ -52,5 +60,17 @@ public class Values : MonoBehaviour
     public void ScrapHandler()
     {
         GameObject.Find("Scrap Cube").GetComponentInChildren<Text>().Change(TotalScrap);
+    }
+
+    public void updateNumEnemies()
+    {
+        TotalEnemies = GameObject.Find("Enemies").transform.childCount;
+        GameObject.Find("Enemy Cube").GetComponentInChildren<Text>().Change(TotalEnemies);
+    }
+
+    public void updateWave()
+    {
+        //Update wave
+        GameObject.Find("Wave Cube").GetComponentInChildren<Text>().Change(wave);
     }
 }
